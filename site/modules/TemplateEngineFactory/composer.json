@@ -1,0 +1,34 @@
+{
+    "name": "wanze/template-engine-factory",
+    "type": "processwire-module",
+    "extra": {
+        "installer-name": "TemplateEngineFactory"
+    },
+    "description": "Provides ProcessWire integration for various template engines such as Twig.",
+    "keywords": [ "template-engine", "processwire"],
+    "homepage": "https://github.com/wanze/TemplateEngineFactory",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefan Wanzenried",
+            "homepage": "https://github.com/wanze",
+            "email": "stefan.wanzenried@gmail.com"
+        },
+        {
+            "name": "TemplateEngineFactory Contributors",
+            "homepage": "https://github.com/wanze/TemplateEngineFactory/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TemplateEngineFactory\\Test\\": "tests/src/"
+        }
+    }
+}

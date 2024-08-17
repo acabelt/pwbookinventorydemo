@@ -1,0 +1,53 @@
+{
+  "name": "pw-base",
+  "version": "1.0.0",
+  "description": "All necessary files for TailwindCSS in ProcessWire CMS/CMF.",
+  "scripts": {
+    "watch": "npm-run-all --parallel watch:*",
+    "build": "rm -rf site/templates/dist/* && npm-run-all build:*",
+    "watch:tailwindcss": "npx tailwindcss -i site/templates/src/tailwindcss.css -c tailwind.config.js -o site/templates/dist/tailwindcss.css --watch",
+    "build:tailwindcss": "npx tailwindcss -i site/templates/src/tailwindcss.css -c tailwind.config.js -o site/templates/dist/tailwindcss.css --minify",
+    "watch:alpinejs": "npx esbuild site/templates/src/alpinejs.js --bundle --target=es2018 --minify --outfile=site/templates/dist/alpinejs.js",
+    "build:alpinejs": "npx esbuild site/templates/src/alpinejs.js --bundle --target=es2018 --minify --outfile=site/templates/dist/alpinejs.js",
+    "watch:htmx": "cp node_modules/htmx.org/dist/htmx.min.js site/templates/dist/htmx.js",
+    "build:htmx": "cp node_modules/htmx.org/dist/htmx.min.js site/templates/dist/htmx.js",
+    "watch:htmx.preload": "cp node_modules/htmx.org/dist/ext/preload.js site/templates/dist/htmx.preload.js",
+    "build:htmx.preload": "cp node_modules/htmx.org/dist/ext/preload.js site/templates/dist/htmx.preload.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acabelt/pw-base.git"
+  },
+  "keywords": [
+    "Processwire",
+    "ProcessWire CMS",
+    "ProcessWire CMF",
+    "TailwindCSS",
+    "AlpineJS",
+    "HTMX"
+  ],
+  "author": "Alexander Abelt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acabelt/pw-base/issues"
+  },
+  "homepage": "https://github.com/acabelt/pw-base#readme",
+  "dependencies": {
+    "@alpinejs/collapse": "^3.14.1",
+    "@alpinejs/focus": "^3.14.1",
+    "@alpinejs/intersect": "^3.14.1",
+    "@alpinejs/mask": "^3.14.1",
+    "@alpinejs/morph": "^3.14.1",
+    "@alpinejs/persist": "^3.14.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.14",
+    "alpinejs": "^3.14.1",
+    "del-cli": "^5.1.0",
+    "esbuild": "^0.23.1",
+    "htmx.org": "^2.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.10"
+  }
+}
