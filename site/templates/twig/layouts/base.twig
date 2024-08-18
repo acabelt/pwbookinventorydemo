@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/site/templates/dist/tailwindcss.css" />
+    <script src="/site/templates/dist/htmx.js"></script>
+  </head>
+  <body>
+    {% block search %}
+      <input type="text" name="query" id="query" class="w-full p-2 border border-gray-300 rounded-md" hx-get="/search/" hx-trigger="input" hx-target="#content" />
+    {% endblock %}
+    {% block content %}
+
+    {% endblock %}
+  </body>
+</html>

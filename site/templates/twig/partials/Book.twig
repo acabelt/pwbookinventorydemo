@@ -1,0 +1,10 @@
+{% for item in books %}
+  <li>
+    <div>
+      <div class="aspect-[3/4] bg-gray-100 rounded mb-2 border-2 border-gray-200"></div>
+    </div>
+    <div class="line-clamp-2">{{ item.title }}</div>
+  </li>
+{% endfor %}
+
+<span hx-swap-oob="true" hx-swap="outerHTML" id="counter">{{ books|length }}</span>

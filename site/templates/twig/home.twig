@@ -1,0 +1,22 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+  <div>
+    Books: <span id="counter">{{ pages.findMany('template=book').count }}</span>
+  </div>
+  {% set books = pages.findMany('template=book, limit=30') %}
+  <div class="py-8">
+    <div class="max-w-5xl mx-auto">
+      <ul class="grid grid-cols-5 gap-4" id="content">
+        {% for book in books %}
+          <li>
+            <div>
+              <div class="aspect-[3/4] bg-gray-100 rounded mb-2"></div>
+            </div>
+            <div class="line-clamp-2">{{ book.title }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

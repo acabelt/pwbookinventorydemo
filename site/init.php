@@ -1,6 +1,8 @@
-<?php namespace ProcessWire;
+<?php
 
-if(!defined("PROCESSWIRE")) die();
+namespace ProcessWire;
+
+if (!defined("PROCESSWIRE")) die();
 
 /** @var ProcessWire $wire */
 
@@ -17,3 +19,18 @@ if(!defined("PROCESSWIRE")) die();
  * });
  *
  */
+
+function sendHTML(string $partial, array $data)
+{
+  $twig = wire('modules')->get('TemplateEngineFactory');
+  return $twig->render(
+    "partials/$partial",
+    $data
+  );
+}
+
+$wire->addHook('/search/', function ($event) {
+  $query = $event->input->get('query');
+  $books = pages()->findMany("template=book, title*=$query, limit=3000");
+  $event->return = sendHTML('Book', ['books' => $books]);
+});
